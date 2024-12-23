@@ -7,10 +7,10 @@ This is a solution to the Multi-step form challenge given by Zenstreet.ai
 Users should be able to:
 
 - Complete each step of the sequence
-  -step1 = Personal Information
-  -step2 = Address
-  -step3 & 4 = Preferences
-  -step 5 = Submit
+  -step1 = Personal Information,
+  -step2 = Address,
+  -step3 & 4 = Preferences,
+  -step 5 = Submit.
 - Go back to a previous step to update their selections
 - See a summary of their selections on the final step and confirm their order
 - View the optimal layout for the interface depending on their device's screen size
@@ -27,7 +27,7 @@ Users should be able to:
 
 ![Mobile View](./public/screenshots/mobile_view.jpg)
 
-![To Go Back or Next Step](./public/screenshots/Next_step.jpg)
+![To Go Back or Next Step](./public/screenshots/Next-step.jpg)
 
 ### Built with
 
@@ -45,3 +45,8 @@ Users should be able to:
 -git clone repository multi-step-form
 -npm install
 -npm run dev
+
+### To view project
+-click on below link
+https://multi-step-form-git-main-kusuma-adaris-projects.vercel.app/
+
