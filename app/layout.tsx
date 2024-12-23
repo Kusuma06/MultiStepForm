@@ -18,7 +18,7 @@ const ubuntu = Ubuntu({
 export const metadata: Metadata = {
   title: "Multi-step form",
   description:
-    "Frontend Mentor Multi-step form challenge. Tech stack includes NextJS, TailwindCSS, Typescript with form validation using React-hook-form and Zod. And Zustand managing form state.",
+    "Multi-step form challenge. Tech stack includes NextJS, TailwindCSS, Typescript with form validation using React-hook-form and Zod. And Zustand managing form state.",
 };
 
 export default function RootLayout({

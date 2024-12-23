@@ -1,29 +1,21 @@
-# Frontend Mentor - Multi-step form solution
+# Multi-step form solution
 
-This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
-
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
-## Overview
+This is a solution to the Multi-step form challenge given by Zenstreet.ai
 
 ### The challenge
 
 Users should be able to:
 
 - Complete each step of the sequence
+  -step1 = Personal Information
+  -step2 = Address
+  -step3 & 4 = Preferences
+  -step 5 = Submit
 - Go back to a previous step to update their selections
 - See a summary of their selections on the final step and confirm their order
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
+  -to proceed next steps hover at left-most-bottom edge button
 - Receive form validation messages if:
   - A field has been missed
   - The email address is not formatted correctly
@@ -31,9 +23,11 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop View](./public/screenshots/desktop.png)
+![Desktop View](./public/screenshots/desktop_view.jpg)
 
-![Mobile View](./public/screenshots/mobile.png)
+![Mobile View](./public/screenshots/mobile_view.jpg)
+
+![To Go Back or Next Step](./public/screenshots/Next_step.jpg)
 
 ### Built with
 
@@ -45,3 +39,9 @@ Users should be able to:
 - TailwindCSS
 - Shadcn UI
 - Typescript
+
+### Run Code
+
+-git clone repository multi-step-form
+-npm install
+-npm run dev

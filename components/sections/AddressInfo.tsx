@@ -20,40 +20,41 @@ import useStore from "@/store/useStore";
 import Container from "../Container";
 
 const formSchema = z.object({
-  name: z.string().min(5, { message: "Name is required" }).max(100),
-  email: z.string().min(1, { message: "Email is required" }).email({
-    message: "Must be a valid email",
-  }),
-  phone: z.string().refine((val) => /^\d{10}$/.test(val), {
-    message: "Phone is required",
+  country: z.string().min(5, { message: "Country is required" }).max(100),
+  state: z.string().min(3, { message: "State is required" }).max(20),
+  city: z.string().min(5, { message: "City is required" }).max(30),
+  zipcode: z.string().refine((val) => /^\d{6}$/.test(val), {
+    message: "Zipcode is required",
   }),
 });
 
 type ValidationSchema = z.infer<typeof formSchema>;
 
-export default function PersonalInfo() {
-  const { personalInfo, setPersonalInfo, increaseStep } = useStore(
+export default function AddressInfo() {
+  const { addressInfo,step, setAddressInfo, increaseStep,decreaseStep } = useStore(
     (state) => state
   );
   const form = useForm<ValidationSchema>({
     resolver: zodResolver(formSchema),
-    defaultValues: { ...personalInfo },
+    defaultValues: { ...addressInfo },
   });
   const {
     control,
     formState: { errors },
   } = form;
-
+  const onPrevious = () => {
+    decreaseStep(step);
+  };
   const onSubmitHandler = (values: ValidationSchema) => {
-    setPersonalInfo({ ...personalInfo, ...values });
-    increaseStep(1);
+    setAddressInfo({ ...addressInfo, ...values });
+    increaseStep(2);
   };
 
   return (
-    <Container onNext={form.handleSubmit(onSubmitHandler)}>
+    <Container onNext={form.handleSubmit(onSubmitHandler)} onPreviousStep={onPrevious}>
       <SectionHeader
-        title="Personal info"
-        description="Please provide your name, email address, and phone number."
+        title="Address info"
+        description="Please provide Country,State,city, and zipcode of your current location."
       />
       <Form {...form}>
         <form
@@ -62,22 +63,22 @@ export default function PersonalInfo() {
         >
           <FormField
             control={control}
-            name="name"
+            name="country"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-c-primary-marine-blue flex items-center justify-between">
-                  Name
-                  <FormMessage>{errors.name?.message}</FormMessage>
+                  Country
+                  <FormMessage>{errors.country?.message}</FormMessage>
                 </FormLabel>
                 <FormControl>
                   <Input
                     className={cn(
                       "placeholder:font-medium placeholder:text-c-neutral-cool-gray border-c-neutral-light-gray text-c-primary-marine-blue",
                       {
-                        "border-c-primary-strawberry-red": errors.name?.message,
+                        "border-c-primary-strawberry-red": errors.country?.message,
                       }
                     )}
-                    placeholder="e.g. Kusuma Adari"
+                    placeholder="e.g. India"
                     {...field}
                   />
                 </FormControl>
@@ -86,12 +87,12 @@ export default function PersonalInfo() {
           />
           <FormField
             control={control}
-            name="email"
+            name="state"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-c-primary-marine-blue flex items-center justify-between">
-                  Email Address
-                  <FormMessage>{errors.email?.message}</FormMessage>
+                  State
+                  <FormMessage>{errors.state?.message}</FormMessage>
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -99,10 +100,10 @@ export default function PersonalInfo() {
                       "placeholder:font-medium placeholder:text-c-neutral-cool-gray border-c-neutral-light-gray text-c-primary-marine-blue",
                       {
                         "border-c-primary-strawberry-red":
-                          errors.email?.message,
+                          errors.state?.message,
                       }
                     )}
-                    placeholder="e.g. adari@outlook.com"
+                    placeholder="e.g. andhra pradesh"
                     {...field}
                   />
                 </FormControl>
@@ -111,12 +112,12 @@ export default function PersonalInfo() {
           />
           <FormField
             control={control}
-            name="phone"
+            name="city"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-c-primary-marine-blue flex items-center justify-between">
-                  Phone Number
-                  <FormMessage>{errors.phone?.message}</FormMessage>
+                  City
+                  <FormMessage>{errors.city?.message}</FormMessage>
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -124,10 +125,35 @@ export default function PersonalInfo() {
                       "placeholder:font-medium placeholder:text-c-neutral-cool-gray border-c-neutral-light-gray text-c-primary-marine-blue",
                       {
                         "border-c-primary-strawberry-red":
-                          errors.phone?.message,
+                          errors.city?.message,
                       }
                     )}
-                    placeholder="e.g. +1 234 567 890"
+                    placeholder="e.g. Anakapalle"
+                    {...field}
+                  />
+                  </FormControl>
+              </FormItem>
+            )}
+          />
+                  <FormField
+            control={control}
+            name="zipcode"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-c-primary-marine-blue flex items-center justify-between">
+                  Zipcode
+                  <FormMessage>{errors.zipcode?.message}</FormMessage>
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    className={cn(
+                      "placeholder:font-medium placeholder:text-c-neutral-cool-gray border-c-neutral-light-gray text-c-primary-marine-blue",
+                      {
+                        "border-c-primary-strawberry-red":
+                          errors.zipcode?.message,
+                      }
+                    )}
+                    placeholder="e.g. 531001"
                     {...field}
                   />
                 </FormControl>

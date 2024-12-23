@@ -11,10 +11,10 @@ export default function SectionHeader({
 }: TSectionHeader) {
   return (
     <div className="mb-[22px] lg:mb-[35px] lg:mt-8">
-      <h1 className="text-c-primary-marine-blue text-2xl font-bold lg:text-[32px] mb-2">
+      <h1 className="text-c-primary-marine-blue text-2xl font-bold lg:text-[32px] mb-2 dark:text-white">
         {title}
       </h1>
-      <p className="text-c-neutral-cool-gray">{description}</p>
+      <p className="text-c-neutral-cool-gray dark:text-gray-400">{description}</p>
     </div>
   );
 }

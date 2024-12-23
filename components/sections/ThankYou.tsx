@@ -17,8 +17,9 @@ export default function ThankYou() {
       <p className="text-c-neutral-cool-gray text-base">
         Thanks for confirming your subscription! We hope you have fun using our
         platform. If you ever need support, please feel free to email us at
-        support@loremgaming.com.
+        support@zenstreet.ai.com.
       </p>
+
     </section>
   );
 }

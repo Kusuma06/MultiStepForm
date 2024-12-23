@@ -51,7 +51,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         "c-primary": {
-          "marine-blue": "hsl(213, 96%, 18%)",
+          "black": "hsl(210, 87.70%, 22.40%)",
           "marine-blue-hover": "hsla(213, 72%, 31%, 1)",
           "purplish-blue": "hsl(243, 100%, 62%)",
           "pastel-blue": "hsl(228, 100%, 84%)",
